@@ -1,0 +1,57 @@
+package comconstuctor;
+import java.util.Scanner;
+public class EmployeeArrayTest {
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		Scanner sc2=new Scanner(System.in);
+		int array[]=new int[10];
+		Employee employees[]=new Employee[5];
+		for(int i=0;i<employees.length;i++) {
+			System.out.println("enter"+(i+1)+"Employee details : ");
+			int employeeId=sc2.nextInt();
+			String employeeName=sc.nextLine();
+			double employeeSalary=sc2.nextDouble();
+			
+			employees[i]=new Employee(employeeId,employeeName,employeeSalary);
+			System.out.println(employees[i]);
+			
+		}
+		//usig bubble shot //
+		for(int i=0;i<employees.length-1;i++)
+		{
+			for(int j=0;j<employees.length-i-1;j++)
+			{
+				if((employees[j].getSalary())>employees[j+1].getSalary())
+				{
+					Employee temp=employees[j];
+					employees[j]=employees[j+1];
+					employees[j+1]=temp;
+				}
+			}
+		}
+		System.out.println("employee assending order sorted by salary");
+		for(Employee employee:employees) {
+			System.out.println(employee);
+		}
+		for(int i=0;i<employees.length-1;i++) {
+			for(int j=0;j<employees.length-i-1;j++) {
+				if((employees[j].getSalary())<employees[j+1].getSalary())
+				{
+					Employee temp2=employees[j];
+					employees[j]=employees[j+1];
+					employees[j+1]=temp2;
+					
+					
+				}
+				
+			}
+		}
+		System.out.println("employee dessindenig order:");
+		for(Employee employee:employees) {
+			System.out.println(employee);
+		}
+	}
+}
+		
+	
